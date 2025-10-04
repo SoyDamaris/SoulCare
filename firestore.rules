@@ -1,0 +1,55 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    // Usuarios pueden leer/escribir solo sus propios datos
+    match /users/{userId} {
+      allow read, write: if request.auth != null && request.auth.uid == userId;
+    }
+    
+    // Emociones del usuario
+    match /emotions/{emotionId} {
+      allow read, write: if request.auth != null && 
+        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+        request.auth.uid == request.resource.data.userId;
+    }
+    
+    // Logros del usuario
+    match /achievements/{achievementId} {
+      allow read, write: if request.auth != null && 
+        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+        request.auth.uid == request.resource.data.userId;
+    }
+    
+    // Encuestas de bienestar
+    match /surveys/{surveyId} {
+      allow read, write: if request.auth != null && 
+        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+        request.auth.uid == request.resource.data.userId;
+    }
+    
+    // Contenido público (solo lectura)
+    match /wellnessTips/{tipId} {
+      allow read: if true;
+    }
+    
+    match /workshops/{workshopId} {
+      allow read: if true;
+    }
+    
+    // Configuración de la aplicación
+    match /appConfig/{configId} {
+      allow read: if true;
+    }
+    
+    // Notificaciones del usuario
+    match /notifications/{notificationId} {
+      allow read, write: if request.auth != null && 
+        request.auth.uid == resource.data.userId;
+      allow create: if request.auth != null && 
+        request.auth.uid == request.resource.data.userId;
+    }
+  }
+}
