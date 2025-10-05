@@ -216,15 +216,102 @@ class SoulCareApp {
         try {
             if (window.auth && window.firebaseAuth) {
                 const provider = new window.firebaseAuth.GoogleAuthProvider();
-                await window.firebaseAuth.signInWithPopup(window.auth, provider);
+                const result = await window.firebaseAuth.signInWithPopup(window.auth, provider);
+                this.currentUser = result.user;
+                
+                // Guardar datos del usuario en Firestore
+                await this.saveUserData(result.user);
+                
                 this.showSuccess('¡Inicio de sesión con Google exitoso!');
+                this.showDashboard();
             } else {
                 // Simular login con Google
                 this.simulateUser();
             }
         } catch (error) {
-            this.showError('Error al iniciar sesión con Google: ' + error.message);
+            console.error('Error al iniciar sesión con Google:', error);
+            
+            // Manejar errores específicos
+            if (error.code === 'auth/unauthorized-domain') {
+                this.showDomainError();
+            } else if (error.code === 'auth/popup-closed-by-user') {
+                this.showError('Inicio de sesión cancelado por el usuario');
+            } else if (error.code === 'auth/popup-blocked') {
+                this.showError('Popup bloqueado por el navegador. Permite popups para este sitio.');
+            } else {
+                this.showError('Error al iniciar sesión con Google: ' + error.message);
+            }
         }
+    }
+
+    showDomainError() {
+        const errorModal = document.createElement('div');
+        errorModal.className = 'fixed inset-0 bg-black bg-opacity-50 flex items-center justify-center z-50';
+        errorModal.innerHTML = `
+            <div class="bg-white rounded-2xl p-8 max-w-2xl mx-4 shadow-2xl">
+                <div class="text-center">
+                    <div class="text-6xl mb-4">⚠️</div>
+                    <h3 class="text-2xl font-bold text-gray-800 mb-4">Dominio No Autorizado</h3>
+                    <p class="text-gray-600 mb-6">
+                        El dominio actual no está autorizado en Firebase. Para solucionarlo:
+                    </p>
+                    
+                    <div class="bg-blue-50 p-6 rounded-xl mb-6 text-left">
+                        <h4 class="font-semibold text-blue-800 mb-3">🛠️ Pasos para Solucionarlo:</h4>
+                        <ol class="text-blue-700 space-y-2 text-sm">
+                            <li><strong>1.</strong> Ve a <a href="https://console.firebase.google.com/" target="_blank" class="underline">Firebase Console</a></li>
+                            <li><strong>2.</strong> Selecciona tu proyecto "soulcare-7e377"</li>
+                            <li><strong>3.</strong> Ve a <strong>Authentication</strong> → <strong>Sign-in method</strong></li>
+                            <li><strong>4.</strong> En <strong>Google</strong>, haz clic en <strong>Configurar</strong></li>
+                            <li><strong>5.</strong> En <strong>Authorized domains</strong>, agrega:</li>
+                            <ul class="ml-4 mt-2 space-y-1">
+                                <li>• <code class="bg-blue-100 px-2 py-1 rounded">localhost</code></li>
+                                <li>• <code class="bg-blue-100 px-2 py-1 rounded">127.0.0.1</code></li>
+                                <li>• <code class="bg-blue-100 px-2 py-1 rounded">file://</code></li>
+                                <li>• <code class="bg-blue-100 px-2 py-1 rounded">souldamaris.github.io</code></li>
+                            </ul>
+                            <li><strong>6.</strong> Haz clic en <strong>Save</strong></li>
+                            <li><strong>7.</strong> Espera 5-10 minutos y recarga la página</li>
+                        </ol>
+                    </div>
+                    
+                    <div class="bg-green-50 p-4 rounded-lg mb-6">
+                        <p class="text-green-700 text-sm">
+                            <strong>💡 Alternativa:</strong> Puedes usar Firebase Hosting ejecutando:
+                            <code class="block bg-green-100 p-2 rounded mt-2 text-xs">firebase deploy --only hosting</code>
+                        </p>
+                    </div>
+                    
+                    <div class="flex gap-4 justify-center">
+                        <button id="retry-login" class="bg-blue-600 text-white px-6 py-3 rounded-lg hover:bg-blue-700 transition-colors">
+                            🔄 Intentar de Nuevo
+                        </button>
+                        <button id="close-domain-error" class="bg-gray-500 text-white px-6 py-3 rounded-lg hover:bg-gray-600 transition-colors">
+                            ✖️ Cerrar
+                        </button>
+                    </div>
+                </div>
+            </div>
+        `;
+        
+        document.body.appendChild(errorModal);
+        
+        // Event listeners
+        document.getElementById('retry-login').addEventListener('click', () => {
+            errorModal.remove();
+            this.handleGoogleLogin();
+        });
+        
+        document.getElementById('close-domain-error').addEventListener('click', () => {
+            errorModal.remove();
+        });
+        
+        // Cerrar al hacer clic fuera del modal
+        errorModal.addEventListener('click', (e) => {
+            if (e.target === errorModal) {
+                errorModal.remove();
+            }
+        });
     }
 
     async handleLogout() {
