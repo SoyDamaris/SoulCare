@@ -495,19 +495,19 @@
                         
                         <div class="mb-8">
                             <label class="block text-lg font-semibold text-gray-700 mb-4">¿Cómo te sientes hoy?</label>
-                                <div class="emoji-picker bg-gradient-to-br from-blue-50 to-purple-50 p-4 sm:p-6 rounded-2xl">
-                                <button class="emoji-btn" data-emotion="muy-feliz" data-color="#10B981">😄</button>
-                                <button class="emoji-btn" data-emotion="feliz" data-color="#34D399">😊</button>
-                                <button class="emoji-btn" data-emotion="neutral" data-color="#FBBF24">😐</button>
-                                <button class="emoji-btn" data-emotion="triste" data-color="#F59E0B">😢</button>
-                                <button class="emoji-btn" data-emotion="muy-triste" data-color="#EF4444">😭</button>
-                                <button class="emoji-btn" data-emotion="ansioso" data-color="#8B5CF6">😰</button>
-                                <button class="emoji-btn" data-emotion="enojado" data-color="#F97316">😠</button>
-                                <button class="emoji-btn" data-emotion="estresado" data-color="#DC2626">😤</button>
-                                <button class="emoji-btn" data-emotion="relajado" data-color="#06B6D4">😌</button>
-                                <button class="emoji-btn" data-emotion="motivado" data-color="#84CC16">💪</button>
-                                <button class="emoji-btn" data-emotion="agotado" data-color="#6B7280">😴</button>
-                                <button class="emoji-btn" data-emotion="gratitud" data-color="#F59E0B">🙏</button>
+                                <div class="emoji-picker bg-gradient-to-br from-blue-50 to-purple-50 p-3 sm:p-6 rounded-2xl grid grid-cols-3 sm:grid-cols-4 lg:grid-cols-6 gap-2 sm:gap-4">
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="muy-feliz" data-color="#10B981">😄</button>
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="feliz" data-color="#34D399">😊</button>
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="neutral" data-color="#FBBF24">😐</button>
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="triste" data-color="#F59E0B">😢</button>
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="muy-triste" data-color="#EF4444">😭</button>
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="ansioso" data-color="#8B5CF6">😰</button>
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="enojado" data-color="#F97316">😠</button>
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="estresado" data-color="#DC2626">😤</button>
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="relajado" data-color="#06B6D4">😌</button>
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="motivado" data-color="#84CC16">💪</button>
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="agotado" data-color="#6B7280">😴</button>
+                                <button class="emoji-btn text-2xl sm:text-3xl p-2 sm:p-4" data-emotion="gratitud" data-color="#F59E0B">🙏</button>
                             </div>
                         </div>
                         
@@ -518,13 +518,13 @@
                                       placeholder="Describe cómo te sientes, qué pasó hoy, o cualquier cosa que quieras recordar..."></textarea>
                         </div>
                         
-                        <div class="flex justify-between items-center">
-                            <div id="selected-emotion" class="text-lg font-semibold text-gray-600 flex items-center">
-                                <span class="text-2xl mr-2">😊</span>
+                        <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                            <div id="selected-emotion" class="text-base sm:text-lg font-semibold text-gray-600 flex items-center">
+                                <span class="text-xl sm:text-2xl mr-2">😊</span>
                                 Selecciona una emoción
                             </div>
-                            <button id="save-emotion" class="bg-gradient-to-r from-blue-500 to-purple-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg" disabled>
-                                <span class="flex items-center">
+                            <button id="save-emotion" class="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-purple-600 text-white px-6 sm:px-8 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 disabled:opacity-50 disabled:cursor-not-allowed shadow-lg" disabled>
+                                <span class="flex items-center justify-center">
                                     <span class="mr-2">💾</span>
                                     Guardar Entrada
                                 </span>
@@ -742,26 +742,26 @@
                             <div class="text-4xl animate-bounce">🎓</div>
                         </div>
                         
-                        <div class="space-y-6">
-                            <div class="group border-2 border-gray-200 rounded-2xl p-6 sm:p-8 hover:border-blue-300 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
-                                <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                                    <div class="text-5xl group-hover:scale-110 transition-transform duration-300">🧠</div>
-                                    <div class="flex-1">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <h4 class="font-bold text-2xl text-gray-800">Inteligencia Emocional</h4>
-                                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-sm font-semibold">Principiante</span>
+                        <div class="space-y-4 sm:space-y-6">
+                            <div class="group border-2 border-gray-200 rounded-2xl p-4 sm:p-6 lg:p-8 hover:border-blue-300 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                                <div class="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-6">
+                                    <div class="text-4xl sm:text-5xl group-hover:scale-110 transition-transform duration-300 self-center sm:self-start">🧠</div>
+                                    <div class="flex-1 w-full">
+                                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 sm:mb-4 gap-2">
+                                            <h4 class="font-bold text-xl sm:text-2xl text-gray-800">Inteligencia Emocional</h4>
+                                            <span class="bg-blue-100 text-blue-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold self-start sm:self-auto">Principiante</span>
                                         </div>
-                                        <p class="text-gray-600 mb-4 text-lg">Aprende a identificar, entender y manejar tus emociones de manera saludable. Este taller te ayudará a desarrollar habilidades emocionales fundamentales.</p>
-                                        <div class="flex items-center space-x-6 text-sm text-gray-500 mb-4">
+                                        <p class="text-gray-600 mb-3 sm:mb-4 text-base sm:text-lg">Aprende a identificar, entender y manejar tus emociones de manera saludable. Este taller te ayudará a desarrollar habilidades emocionales fundamentales.</p>
+                                        <div class="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-gray-500 mb-4">
                                             <span class="flex items-center"><span class="mr-2">⏱️</span>45 minutos</span>
                                             <span class="flex items-center"><span class="mr-2">👥</span>Para principiantes</span>
                                             <span class="flex items-center"><span class="mr-2">⭐</span>4.8/5</span>
                                         </div>
-                                         <div class="flex items-center space-x-4">
-                                             <button id="workshop-emotional-intelligence-btn" class="bg-gradient-to-r from-blue-500 to-blue-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                                         <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                                             <button id="workshop-emotional-intelligence-btn" class="w-full sm:w-auto bg-gradient-to-r from-blue-500 to-blue-600 text-white px-6 sm:px-8 py-3 rounded-xl font-semibold hover:from-blue-600 hover:to-blue-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
                                                  Comenzar Taller
                                              </button>
-                                             <button id="workshop-emotional-intelligence-details-btn" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors">
+                                             <button id="workshop-emotional-intelligence-details-btn" class="text-blue-600 font-semibold hover:text-blue-700 transition-colors text-center sm:text-left">
                                                  Ver detalles →
                                              </button>
                                          </div>
@@ -769,25 +769,25 @@
                                 </div>
                             </div>
                             
-                            <div class="group border-2 border-gray-200 rounded-2xl p-6 sm:p-8 hover:border-green-300 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
-                                <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                                    <div class="text-5xl group-hover:scale-110 transition-transform duration-300">😌</div>
-                                    <div class="flex-1">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <h4 class="font-bold text-2xl text-gray-800">Manejo del Estrés</h4>
-                                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-sm font-semibold">Intermedio</span>
+                            <div class="group border-2 border-gray-200 rounded-2xl p-4 sm:p-6 lg:p-8 hover:border-green-300 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                                <div class="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-6">
+                                    <div class="text-4xl sm:text-5xl group-hover:scale-110 transition-transform duration-300 self-center sm:self-start">😌</div>
+                                    <div class="flex-1 w-full">
+                                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 sm:mb-4 gap-2">
+                                            <h4 class="font-bold text-xl sm:text-2xl text-gray-800">Manejo del Estrés</h4>
+                                            <span class="bg-green-100 text-green-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold self-start sm:self-auto">Intermedio</span>
                                         </div>
-                                        <p class="text-gray-600 mb-4 text-lg">Técnicas prácticas para reducir el estrés y la ansiedad en tu vida diaria. Aprende herramientas efectivas para mantener la calma.</p>
-                                        <div class="flex items-center space-x-6 text-sm text-gray-500 mb-4">
+                                        <p class="text-gray-600 mb-3 sm:mb-4 text-base sm:text-lg">Técnicas prácticas para reducir el estrés y la ansiedad en tu vida diaria. Aprende herramientas efectivas para mantener la calma.</p>
+                                        <div class="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-gray-500 mb-4">
                                             <span class="flex items-center"><span class="mr-2">⏱️</span>30 minutos</span>
                                             <span class="flex items-center"><span class="mr-2">👥</span>Intermedio</span>
                                             <span class="flex items-center"><span class="mr-2">⭐</span>4.9/5</span>
                                         </div>
-                                         <div class="flex items-center space-x-4">
-                                             <button id="workshop-stress-management-btn" class="bg-gradient-to-r from-green-500 to-green-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                                         <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                                             <button id="workshop-stress-management-btn" class="w-full sm:w-auto bg-gradient-to-r from-green-500 to-green-600 text-white px-6 sm:px-8 py-3 rounded-xl font-semibold hover:from-green-600 hover:to-green-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
                                                  Comenzar Taller
                                              </button>
-                                             <button id="workshop-stress-management-details-btn" class="text-green-600 font-semibold hover:text-green-700 transition-colors">
+                                             <button id="workshop-stress-management-details-btn" class="text-green-600 font-semibold hover:text-green-700 transition-colors text-center sm:text-left">
                                                  Ver detalles →
                                              </button>
                                          </div>
@@ -795,25 +795,25 @@
                                 </div>
                             </div>
                             
-                            <div class="group border-2 border-gray-200 rounded-2xl p-6 sm:p-8 hover:border-purple-300 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
-                                <div class="flex flex-col sm:flex-row items-start space-y-4 sm:space-y-0 sm:space-x-6">
-                                    <div class="text-5xl group-hover:scale-110 transition-transform duration-300">💪</div>
-                                    <div class="flex-1">
-                                        <div class="flex items-center justify-between mb-4">
-                                            <h4 class="font-bold text-2xl text-gray-800">Autoestima y Confianza</h4>
-                                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-sm font-semibold">Avanzado</span>
+                            <div class="group border-2 border-gray-200 rounded-2xl p-4 sm:p-6 lg:p-8 hover:border-purple-300 hover:shadow-xl transition-all duration-300 transform hover:scale-[1.02]">
+                                <div class="flex flex-col sm:flex-row items-start space-y-3 sm:space-y-0 sm:space-x-6">
+                                    <div class="text-4xl sm:text-5xl group-hover:scale-110 transition-transform duration-300 self-center sm:self-start">💪</div>
+                                    <div class="flex-1 w-full">
+                                        <div class="flex flex-col sm:flex-row sm:items-center justify-between mb-3 sm:mb-4 gap-2">
+                                            <h4 class="font-bold text-xl sm:text-2xl text-gray-800">Autoestima y Confianza</h4>
+                                            <span class="bg-purple-100 text-purple-800 px-3 py-1 rounded-full text-xs sm:text-sm font-semibold self-start sm:self-auto">Avanzado</span>
                                         </div>
-                                        <p class="text-gray-600 mb-4 text-lg">Construye una imagen positiva de ti mismo y desarrolla tu confianza personal. Aprende a valorarte y proyectar seguridad.</p>
-                                        <div class="flex items-center space-x-6 text-sm text-gray-500 mb-4">
+                                        <p class="text-gray-600 mb-3 sm:mb-4 text-base sm:text-lg">Construye una imagen positiva de ti mismo y desarrolla tu confianza personal. Aprende a valorarte y proyectar seguridad.</p>
+                                        <div class="flex flex-col sm:flex-row sm:items-center space-y-2 sm:space-y-0 sm:space-x-6 text-xs sm:text-sm text-gray-500 mb-4">
                                             <span class="flex items-center"><span class="mr-2">⏱️</span>60 minutos</span>
                                             <span class="flex items-center"><span class="mr-2">👥</span>Avanzado</span>
                                             <span class="flex items-center"><span class="mr-2">⭐</span>4.7/5</span>
                                         </div>
-                                         <div class="flex items-center space-x-4">
-                                             <button id="workshop-self-esteem-btn" class="bg-gradient-to-r from-purple-500 to-purple-600 text-white px-8 py-3 rounded-xl font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
+                                         <div class="flex flex-col sm:flex-row items-stretch sm:items-center space-y-3 sm:space-y-0 sm:space-x-4">
+                                             <button id="workshop-self-esteem-btn" class="w-full sm:w-auto bg-gradient-to-r from-purple-500 to-purple-600 text-white px-6 sm:px-8 py-3 rounded-xl font-semibold hover:from-purple-600 hover:to-purple-700 transition-all duration-300 transform hover:scale-105 shadow-lg">
                                                  Comenzar Taller
                                              </button>
-                                             <button id="workshop-self-esteem-details-btn" class="text-purple-600 font-semibold hover:text-purple-700 transition-colors">
+                                             <button id="workshop-self-esteem-details-btn" class="text-purple-600 font-semibold hover:text-purple-700 transition-colors text-center sm:text-left">
                                                  Ver detalles →
                                              </button>
                                          </div>

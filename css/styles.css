@@ -1005,64 +1005,216 @@
    RESPONSIVE - MÓVIL
    ============================================ */
 @media (max-width: 640px) {
-    .meditation-modal {
-        padding: 30px 20px;
+    /* Contenedores principales */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
     }
     
-    .timer-display .time {
-        font-size: 56px;
+    /* Secciones principales */
+    .bg-white.rounded-2xl.shadow-xl {
+        padding: 1rem;
+        margin: 0.5rem 0;
     }
     
-    .meditation-icon,
-    .breathing-icon {
-        font-size: 60px;
-    }
-    
-    .meditation-content h2 {
-        font-size: 24px;
-    }
-    
-    .breathing-circle {
-        width: 200px;
-        height: 200px;
-    }
-    
-    .breathing-inner {
-        width: 150px;
-        height: 150px;
-    }
-    
-    .emoji-picker {
-        grid-template-columns: repeat(4, 1fr);
-        gap: 8px;
-        padding: 15px;
-    }
-    
-    .emoji-btn {
-        font-size: 1.5rem;
-        padding: 8px;
-    }
-    
-    .card-hover:hover {
-        transform: none;
-    }
-    
-    .card-hover:active {
-        transform: scale(0.98);
-    }
-}
-
-@media (max-width: 480px) {
-    .emoji-picker {
-        grid-template-columns: repeat(3, 1fr);
-    }
-    
+    /* Títulos y texto */
     .text-3xl {
         font-size: 1.5rem;
     }
     
     .text-2xl {
         font-size: 1.25rem;
+    }
+    
+    .text-xl {
+        font-size: 1.125rem;
+    }
+    
+    /* Modales de meditación */
+    .meditation-modal {
+        padding: 20px 15px;
+        margin: 1rem;
+        width: calc(100% - 2rem);
+    }
+    
+    .timer-display .time {
+        font-size: 48px;
+    }
+    
+    .meditation-icon,
+    .breathing-icon {
+        font-size: 50px;
+    }
+    
+    .meditation-content h2 {
+        font-size: 20px;
+    }
+    
+    .breathing-circle {
+        width: 180px;
+        height: 180px;
+    }
+    
+    .breathing-inner {
+        width: 130px;
+        height: 130px;
+    }
+    
+    /* Diario emocional */
+    .emoji-picker {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 8px;
+        padding: 12px;
+    }
+    
+    .emoji-btn {
+        font-size: 1.5rem;
+        padding: 8px;
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Talleres */
+    .group.border-2 {
+        padding: 1rem;
+    }
+    
+    .group .text-4xl {
+        font-size: 2.5rem;
+    }
+    
+    .group .text-5xl {
+        font-size: 3rem;
+    }
+    
+    /* Botones */
+    .bg-gradient-to-r {
+        padding: 0.75rem 1.5rem;
+        font-size: 0.875rem;
+    }
+    
+    /* Efectos hover deshabilitados en móvil */
+    .card-hover:hover,
+    .hover-lift:hover,
+    .btn-hover-effect:hover {
+        transform: none;
+    }
+    
+    .card-hover:active,
+    .hover-lift:active {
+        transform: scale(0.98);
+    }
+    
+    /* Espaciado mejorado */
+    .space-y-6 > * + * {
+        margin-top: 1rem;
+    }
+    
+    .space-y-4 > * + * {
+        margin-top: 0.75rem;
+    }
+    
+    /* Formularios */
+    .px-6.py-4 {
+        padding: 0.75rem 1rem;
+    }
+    
+    /* Navegación */
+    .flex.justify-between {
+        flex-direction: column;
+        gap: 0.75rem;
+    }
+    
+    .flex.items-center.space-x-6 {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Pantallas muy pequeñas */
+    .emoji-picker {
+        grid-template-columns: repeat(3, 1fr);
+        gap: 6px;
+        padding: 10px;
+    }
+    
+    .emoji-btn {
+        font-size: 1.25rem;
+        padding: 6px;
+    }
+    
+    .text-3xl {
+        font-size: 1.25rem;
+    }
+    
+    .text-2xl {
+        font-size: 1.125rem;
+    }
+    
+    .text-xl {
+        font-size: 1rem;
+    }
+    
+    /* Botones más pequeños */
+    .bg-gradient-to-r {
+        padding: 0.5rem 1rem;
+        font-size: 0.8rem;
+    }
+    
+    /* Modales más compactos */
+    .meditation-modal {
+        padding: 15px 10px;
+        margin: 0.5rem;
+        width: calc(100% - 1rem);
+    }
+    
+    .timer-display .time {
+        font-size: 40px;
+    }
+    
+    .meditation-content h2 {
+        font-size: 18px;
+    }
+    
+    /* Talleres más compactos */
+    .group.border-2 {
+        padding: 0.75rem;
+    }
+    
+    .group .text-4xl,
+    .group .text-5xl {
+        font-size: 2rem;
+    }
+}
+
+@media (max-width: 360px) {
+    /* Pantallas extra pequeñas */
+    .emoji-picker {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 4px;
+        padding: 8px;
+    }
+    
+    .emoji-btn {
+        font-size: 1.125rem;
+        padding: 4px;
+        min-height: 40px;
+        min-width: 40px;
+    }
+    
+    .text-3xl {
+        font-size: 1.125rem;
+    }
+    
+    .bg-gradient-to-r {
+        padding: 0.5rem 0.75rem;
+        font-size: 0.75rem;
+    }
+    
+    .group.border-2 {
+        padding: 0.5rem;
     }
 }
 
