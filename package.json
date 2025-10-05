@@ -1,0 +1,23 @@
+{
+  "name": "soulcare",
+  "version": "1.0.0",
+  "description": "SoulCare es una aplicación web moderna diseñada para promover la salud mental en adolescentes y jóvenes mediante herramientas tecnológicas y educativas.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/SoyDamaris/SoulCare.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/SoyDamaris/SoulCare/issues"
+  },
+  "homepage": "https://github.com/SoyDamaris/SoulCare#readme",
+  "dependencies": {
+    "firebase": "^12.3.0"
+  }
+}

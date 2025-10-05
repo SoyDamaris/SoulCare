@@ -1,0 +1,1138 @@
+/* SoulCare - Estilos completos con funcionalidad de meditación */
+
+/* ============================================
+   VARIABLES CSS PERSONALIZADAS
+   ============================================ */
+   :root {
+    --primary-blue: #3B82F6;
+    --primary-mint: #10B981;
+    --primary-lavender: #8B5CF6;
+    --soft-blue: #DBEAFE;
+    --soft-mint: #D1FAE5;
+    --soft-lavender: #EDE9FE;
+    --text-primary: #1F2937;
+    --text-secondary: #6B7280;
+    --bg-primary: #FFFFFF;
+    --bg-secondary: #F9FAFB;
+    --border-color: #E5E7EB;
+}
+
+/* ============================================
+   MODO OSCURO
+   ============================================ */
+.dark {
+    --text-primary: #F9FAFB;
+    --text-secondary: #D1D5DB;
+    --bg-primary: #1F2937;
+    --bg-secondary: #111827;
+    --border-color: #374151;
+}
+
+.dark body {
+    background-color: var(--bg-secondary);
+    color: var(--text-primary);
+}
+
+.dark .bg-white {
+    background-color: var(--bg-primary) !important;
+}
+
+.dark .text-gray-800 {
+    color: var(--text-primary) !important;
+}
+
+.dark .text-gray-600 {
+    color: var(--text-secondary) !important;
+}
+
+.dark .border-gray-300,
+.dark .border-gray-200,
+.dark .border-gray-100 {
+    border-color: var(--border-color) !important;
+}
+
+.dark .bg-gray-50 {
+    background-color: var(--bg-secondary) !important;
+}
+
+/* ============================================
+   OVERLAY Y MODALES DE MEDITACIÓN
+   ============================================ */
+.meditation-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: rgba(0, 0, 0, 0.85);
+    backdrop-filter: blur(10px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 9999;
+    animation: fadeIn 0.3s ease;
+}
+
+.meditation-modal {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    border-radius: 30px;
+    padding: 40px;
+    max-width: 500px;
+    width: 90%;
+    position: relative;
+    box-shadow: 0 20px 60px rgba(0, 0, 0, 0.5);
+    animation: slideUp 0.4s ease;
+}
+
+.close-btn {
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: white;
+    font-size: 24px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.close-btn:hover {
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
+}
+
+.meditation-content {
+    text-align: center;
+    color: white;
+}
+
+.meditation-icon,
+.breathing-icon {
+    font-size: 80px;
+    margin-bottom: 20px;
+    animation: float 3s ease-in-out infinite;
+}
+
+.meditation-content h2 {
+    font-size: 32px;
+    margin-bottom: 10px;
+    font-weight: 700;
+}
+
+.meditation-instruction,
+.breathing-instruction {
+    font-size: 18px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* ============================================
+   TIMER Y BARRA DE PROGRESO
+   ============================================ */
+.timer-display {
+    margin: 30px 0;
+}
+
+.timer-display .time {
+    font-size: 72px;
+    font-weight: 700;
+    font-family: 'Courier New', monospace;
+    text-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+}
+
+.time-separator {
+    font-size: 48px;
+    margin: 0 10px;
+    opacity: 0.5;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 10px;
+    overflow: hidden;
+    margin: 20px 0;
+    cursor: pointer;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #4facfe 0%, #00f2fe 100%);
+    border-radius: 10px;
+    transition: width 0.5s linear;
+    box-shadow: 0 0 20px rgba(79, 172, 254, 0.6);
+}
+
+/* ============================================
+   CONTROLES DE MEDITACIÓN
+   ============================================ */
+.control-btn,
+.pause-btn {
+    background: white;
+    color: #667eea;
+    border: none;
+    padding: 15px 40px;
+    font-size: 18px;
+    font-weight: 600;
+    border-radius: 50px;
+    cursor: pointer;
+    margin: 10px 5px;
+    transition: all 0.3s ease;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+.control-btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.3);
+}
+
+.control-btn:active {
+    transform: translateY(0);
+}
+
+/* ============================================
+   REPRODUCTOR DE AUDIO
+   ============================================ */
+.audio-player {
+    background: rgba(255, 255, 255, 0.1);
+    border-radius: 20px;
+    padding: 30px;
+    margin: 20px 0;
+}
+
+.audio-controls {
+    display: flex;
+    justify-content: center;
+    gap: 15px;
+    margin: 20px 0;
+}
+
+.volume-control {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-top: 20px;
+}
+
+.volume-control span {
+    font-size: 24px;
+}
+
+#volume-slider {
+    flex: 1;
+    height: 6px;
+    border-radius: 5px;
+    background: rgba(255, 255, 255, 0.2);
+    outline: none;
+    -webkit-appearance: none;
+}
+
+#volume-slider::-webkit-slider-thumb {
+    -webkit-appearance: none;
+    appearance: none;
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+#volume-slider::-moz-range-thumb {
+    width: 20px;
+    height: 20px;
+    border-radius: 50%;
+    background: white;
+    cursor: pointer;
+    border: none;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+/* ============================================
+   CÍRCULO DE RESPIRACIÓN
+   ============================================ */
+.breathing-circle {
+    width: 250px;
+    height: 250px;
+    margin: 40px auto;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    transition: all 1s ease-in-out;
+}
+
+.breathing-inner {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    background: radial-gradient(circle, rgba(255,255,255,0.3) 0%, rgba(255,255,255,0.1) 100%);
+    transition: all 1s ease-in-out;
+}
+
+.breathing-circle.inhale {
+    transform: scale(1.3);
+    background: rgba(100, 200, 255, 0.3);
+    box-shadow: 0 0 60px rgba(100, 200, 255, 0.6);
+}
+
+.breathing-circle.inhale .breathing-inner {
+    transform: scale(1.2);
+}
+
+.breathing-circle.exhale {
+    transform: scale(0.8);
+    background: rgba(255, 150, 100, 0.3);
+    box-shadow: 0 0 40px rgba(255, 150, 100, 0.4);
+}
+
+.breathing-circle.exhale .breathing-inner {
+    transform: scale(0.7);
+}
+
+.breathing-circle.hold {
+    transform: scale(1.1);
+    box-shadow: 0 0 50px rgba(255, 255, 255, 0.3);
+}
+
+.breathing-count {
+    font-size: 20px;
+    margin: 20px 0;
+    opacity: 0.8;
+}
+
+.breathing-count span {
+    font-weight: 600;
+}
+
+/* ============================================
+   PANTALLA DE COMPLETADO
+   ============================================ */
+.completion {
+    padding: 40px 0;
+}
+
+.completion-icon {
+    font-size: 100px;
+    margin-bottom: 20px;
+    animation: celebration 0.6s ease;
+}
+
+.completion h2 {
+    font-size: 36px;
+    margin-bottom: 15px;
+}
+
+.completion p {
+    font-size: 20px;
+    margin-bottom: 30px;
+    opacity: 0.9;
+}
+
+/* ============================================
+   ANIMACIONES GENERALES
+   ============================================ */
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+@keyframes slideUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes float {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+}
+
+/* Responsive Design Improvements */
+@media (max-width: 640px) {
+    /* Reducir padding en móviles */
+    .container {
+        padding-left: 1rem;
+        padding-right: 1rem;
+    }
+    
+    /* Hacer que los emojis sean más grandes en móviles */
+    .emoji-btn {
+        font-size: 2.5rem !important;
+        padding: 0.75rem !important;
+    }
+    
+    /* Mejorar la legibilidad en móviles */
+    h1, h2, h3 {
+        line-height: 1.2;
+    }
+    
+    /* Ajustar el tamaño de los botones para mejor usabilidad táctil */
+    button {
+        min-height: 44px;
+        min-width: 44px;
+    }
+    
+    /* Mejorar el espaciado en móviles */
+    .space-y-6 > * + * {
+        margin-top: 1rem;
+    }
+    
+    /* Ajustar el grid de emojis para móviles */
+    .emoji-picker {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 0.5rem;
+    }
+}
+
+/* Mejoras para tablets */
+@media (min-width: 641px) and (max-width: 1024px) {
+    /* Optimizar el grid para tablets */
+    .grid.grid-cols-1.sm\\:grid-cols-2.lg\\:grid-cols-4 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+    
+    /* Mejorar el espaciado en tablets */
+    .space-y-6 > * + * {
+        margin-top: 1.5rem;
+    }
+    
+    /* Ajustar el tamaño de los emojis para tablets */
+    .emoji-btn {
+        font-size: 2rem;
+        padding: 1rem;
+    }
+}
+
+/* Mejoras para pantallas grandes */
+@media (min-width: 1025px) {
+    /* Asegurar que el contenido no se estire demasiado */
+    .container {
+        max-width: 1200px;
+        margin: 0 auto;
+    }
+    
+    /* Mejorar el espaciado en pantallas grandes */
+    .space-y-6 > * + * {
+        margin-top: 2rem;
+    }
+}
+
+@keyframes celebration {
+    0%, 100% { transform: scale(1) rotate(0deg); }
+    25% { transform: scale(1.2) rotate(-10deg); }
+    75% { transform: scale(1.2) rotate(10deg); }
+}
+
+@keyframes slideInFromLeft {
+    0% {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromTop {
+    0% {
+        transform: translateY(-100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInFromBottom {
+    0% {
+        transform: translateY(100%);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes bounce {
+    0%, 20%, 53%, 80%, 100% {
+        transform: translate3d(0,0,0);
+    }
+    40%, 43% {
+        transform: translate3d(0, -30px, 0);
+    }
+    70% {
+        transform: translate3d(0, -15px, 0);
+    }
+    90% {
+        transform: translate3d(0, -4px, 0);
+    }
+}
+
+@keyframes pulse {
+    0% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes shake {
+    0%, 100% {
+        transform: translateX(0);
+    }
+    10%, 30%, 50%, 70%, 90% {
+        transform: translateX(-10px);
+    }
+    20%, 40%, 60%, 80% {
+        transform: translateX(10px);
+    }
+}
+
+@keyframes confettiFall {
+    0% {
+        transform: translateY(-100vh) rotate(0deg);
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(100vh) rotate(720deg);
+        opacity: 0;
+    }
+}
+
+@keyframes shimmer {
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 200% 0;
+    }
+}
+
+@keyframes gradientShift {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+
+@keyframes slideOutToRight {
+    0% {
+        transform: translateX(0);
+        opacity: 1;
+    }
+    100% {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+}
+
+@keyframes loadingDots {
+    0%, 20% {
+        content: '';
+    }
+    40% {
+        content: '.';
+    }
+    60% {
+        content: '..';
+    }
+    80%, 100% {
+        content: '...';
+    }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+/* ============================================
+   CLASES DE ANIMACIÓN
+   ============================================ */
+.slide-in-left {
+    animation: slideInFromLeft 0.5s ease-out;
+}
+
+.slide-in-right {
+    animation: slideInFromRight 0.5s ease-out;
+}
+
+.slide-in-top {
+    animation: slideInFromTop 0.5s ease-out;
+}
+
+.slide-in-bottom {
+    animation: slideInFromBottom 0.5s ease-out;
+}
+
+.bounce-animation {
+    animation: bounce 1s;
+}
+
+.pulse-animation {
+    animation: pulse 2s infinite;
+}
+
+.shake-animation {
+    animation: shake 0.5s;
+}
+
+.animation-delay-1000 {
+    animation-delay: 1s;
+}
+
+.animation-delay-2000 {
+    animation-delay: 2s;
+}
+
+.animation-delay-3000 {
+    animation-delay: 3s;
+}
+
+/* ============================================
+   EFECTOS DE HOVER
+   ============================================ */
+.hover-lift {
+    transition: all 0.3s ease;
+}
+
+.hover-lift:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+
+.btn-hover-effect {
+    position: relative;
+    overflow: hidden;
+}
+
+.btn-hover-effect::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.2), transparent);
+    transition: left 0.5s;
+}
+
+.btn-hover-effect:hover::before {
+    left: 100%;
+}
+
+/* ============================================
+   SELECTOR DE EMOJIS
+   ============================================ */
+.emoji-picker {
+    background: linear-gradient(135deg, #f8fafc 0%, #e2e8f0 100%);
+    border-radius: 15px;
+    border: 1px solid #e2e8f0;
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+}
+
+.dark .emoji-picker {
+    background: linear-gradient(135deg, #374151 0%, #4B5563 100%);
+    border-color: var(--border-color);
+}
+
+.emoji-btn {
+    background: white;
+    border: 2px solid transparent;
+    border-radius: 12px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.dark .emoji-btn {
+    background: var(--bg-primary);
+    border-color: var(--border-color);
+}
+
+.emoji-btn::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(45deg, transparent, rgba(255, 255, 255, 0.3), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.6s;
+}
+
+.emoji-btn:hover::before {
+    transform: translateX(100%);
+}
+
+.emoji-btn:hover {
+    transform: scale(1.1);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    border-color: var(--primary-blue);
+}
+
+.dark .emoji-btn:hover {
+    border-color: var(--primary-blue);
+    background: rgba(59, 130, 246, 0.1);
+}
+
+.emoji-btn:active {
+    transform: scale(0.95);
+}
+
+.emoji-btn.selected {
+    border-color: var(--primary-blue);
+    background: var(--soft-blue);
+    box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.1);
+}
+
+/* ============================================
+   TARJETAS DE CONSEJOS
+   ============================================ */
+.wellness-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8fafc 100%);
+    border: 1px solid #e2e8f0;
+    border-radius: 16px;
+    padding: 24px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.wellness-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 4px;
+    background: linear-gradient(90deg, var(--primary-blue), var(--primary-mint), var(--primary-lavender));
+}
+
+.wellness-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    border-color: var(--primary-blue);
+}
+
+.dark .wellness-card {
+    background: linear-gradient(135deg, var(--bg-primary) 0%, #374151 100%);
+    border-color: var(--border-color);
+}
+
+/* ============================================
+   NOTIFICACIONES
+   ============================================ */
+.notification {
+    backdrop-filter: blur(10px);
+    background: rgba(255, 255, 255, 0.9);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .notification {
+    background: rgba(31, 41, 55, 0.9);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+.notification-slide-in {
+    animation: slideInFromRight 0.5s ease-out;
+}
+
+.notification-slide-out {
+    animation: slideOutToRight 0.5s ease-in;
+}
+
+/* ============================================
+   GRÁFICOS Y ESTADÍSTICAS
+   ============================================ */
+.chart-container {
+    position: relative;
+    height: 300px;
+    width: 100%;
+}
+
+/* ============================================
+   FORMULARIOS
+   ============================================ */
+.auth-form {
+    backdrop-filter: blur(20px);
+    background: rgba(255, 255, 255, 0.95);
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.dark .auth-form {
+    background: rgba(31, 41, 55, 0.95);
+    border-color: rgba(255, 255, 255, 0.1);
+}
+
+/* ============================================
+   TEMA Y BOTONES
+   ============================================ */
+.theme-toggle {
+    position: relative;
+    overflow: hidden;
+}
+
+.theme-toggle::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    background: rgba(59, 130, 246, 0.1);
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    transition: all 0.3s ease;
+}
+
+.theme-toggle:hover::before {
+    width: 100%;
+    height: 100%;
+}
+
+/* ============================================
+   LOGROS
+   ============================================ */
+.achievement-badge {
+    background: linear-gradient(135deg, #FBBF24, #F59E0B);
+    color: white;
+    border-radius: 50%;
+    width: 60px;
+    height: 60px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    box-shadow: 0 4px 15px rgba(251, 191, 36, 0.3);
+    animation: pulse 2s infinite;
+}
+
+/* ============================================
+   ESTADOS DE CARGA Y VACÍO
+   ============================================ */
+.loading-spinner {
+    border: 3px solid #f3f3f3;
+    border-top: 3px solid var(--primary-blue);
+    border-radius: 50%;
+    width: 40px;
+    height: 40px;
+    animation: spin 1s linear infinite;
+}
+
+.loading-dots {
+    display: inline-block;
+}
+
+.loading-dots::after {
+    content: '';
+    animation: loadingDots 1.5s infinite;
+}
+
+.empty-state {
+    text-align: center;
+    padding: 60px 20px;
+    color: var(--text-secondary);
+}
+
+.empty-state-icon {
+    font-size: 4rem;
+    margin-bottom: 20px;
+    opacity: 0.5;
+}
+
+/* ============================================
+   ESTADOS DE ERROR Y ÉXITO
+   ============================================ */
+.error-state {
+    background: linear-gradient(135deg, #FEF2F2, #FEE2E2);
+    border: 1px solid #FECACA;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    color: #DC2626;
+}
+
+.dark .error-state {
+    background: linear-gradient(135deg, #7F1D1D, #991B1B);
+    border-color: #DC2626;
+    color: #FECACA;
+}
+
+.success-state {
+    background: linear-gradient(135deg, #F0FDF4, #DCFCE7);
+    border: 1px solid #BBF7D0;
+    border-radius: 12px;
+    padding: 20px;
+    text-align: center;
+    color: #16A34A;
+}
+
+.dark .success-state {
+    background: linear-gradient(135deg, #14532D, #166534);
+    border-color: #16A34A;
+    color: #BBF7D0;
+}
+
+/* ============================================
+   TOOLTIPS
+   ============================================ */
+.tooltip {
+    position: relative;
+    display: inline-block;
+}
+
+.tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: var(--text-primary);
+    color: var(--bg-primary);
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 8px;
+    position: absolute;
+    z-index: 1;
+    bottom: 125%;
+    left: 50%;
+    margin-left: -60px;
+    opacity: 0;
+    transition: opacity 0.3s;
+    font-size: 12px;
+}
+
+.tooltip:hover .tooltiptext {
+    visibility: visible;
+    opacity: 1;
+}
+
+/* ============================================
+   SCROLLBAR PERSONALIZADO
+   ============================================ */
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: #2563eb;
+}
+
+.dark ::-webkit-scrollbar-track {
+    background: #374151;
+}
+
+.dark ::-webkit-scrollbar-thumb {
+    background: var(--primary-blue);
+}
+
+/* ============================================
+   ACCESIBILIDAD
+   ============================================ */
+.focus-visible:focus {
+    outline: 2px solid var(--primary-blue);
+    outline-offset: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.high-contrast {
+    filter: contrast(150%);
+}
+
+.large-text {
+    font-size: 1.25rem;
+    line-height: 1.6;
+}
+
+/* ============================================
+   RESPONSIVE - MÓVIL
+   ============================================ */
+@media (max-width: 640px) {
+    .meditation-modal {
+        padding: 30px 20px;
+    }
+    
+    .timer-display .time {
+        font-size: 56px;
+    }
+    
+    .meditation-icon,
+    .breathing-icon {
+        font-size: 60px;
+    }
+    
+    .meditation-content h2 {
+        font-size: 24px;
+    }
+    
+    .breathing-circle {
+        width: 200px;
+        height: 200px;
+    }
+    
+    .breathing-inner {
+        width: 150px;
+        height: 150px;
+    }
+    
+    .emoji-picker {
+        grid-template-columns: repeat(4, 1fr);
+        gap: 8px;
+        padding: 15px;
+    }
+    
+    .emoji-btn {
+        font-size: 1.5rem;
+        padding: 8px;
+    }
+    
+    .card-hover:hover {
+        transform: none;
+    }
+    
+    .card-hover:active {
+        transform: scale(0.98);
+    }
+}
+
+@media (max-width: 480px) {
+    .emoji-picker {
+        grid-template-columns: repeat(3, 1fr);
+    }
+    
+    .text-3xl {
+        font-size: 1.5rem;
+    }
+    
+    .text-2xl {
+        font-size: 1.25rem;
+    }
+}
+
+/* ============================================
+   ANIMACIONES PARA CRONÓMETRO DE MEDITACIÓN
+   ============================================ */
+@keyframes pulse-timer {
+    0%, 100% {
+        transform: scale(1);
+    }
+    50% {
+        transform: scale(1.05);
+    }
+}
+
+@keyframes breathe {
+    0%, 100% {
+        transform: scale(1);
+        opacity: 0.8;
+    }
+    50% {
+        transform: scale(1.1);
+        opacity: 1;
+    }
+}
+
+@keyframes progress-glow {
+    0%, 100% {
+        box-shadow: 0 0 5px rgba(59, 130, 246, 0.5);
+    }
+    50% {
+        box-shadow: 0 0 20px rgba(59, 130, 246, 0.8);
+    }
+}
+
+.meditation-timer-active {
+    animation: pulse-timer 2s ease-in-out infinite;
+}
+
+.meditation-breathing {
+    animation: breathe 4s ease-in-out infinite;
+}
+
+.progress-glow {
+    animation: progress-glow 2s ease-in-out infinite;
+}
+
+/* Estilos para el círculo de progreso SVG */
+#progress-circle {
+    transition: stroke-dashoffset 1s ease-in-out;
+}
+
+/* Efectos hover para botones de meditación */
+#meditation-timer-section button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.15);
+}
+
+/* Animación de entrada para la sección del cronómetro */
+#meditation-timer-section {
+    animation: slideInFromBottom 0.5s ease-out;
+}
+
+@keyframes slideInFromBottom {
+    from {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
