@@ -1005,6 +1005,17 @@
    RESPONSIVE - MÓVIL
    ============================================ */
 @media (max-width: 640px) {
+    /* Header optimizado para móviles */
+    nav {
+        background-color: rgba(255, 255, 255, 0.98) !important;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+    }
+    
+    .dark nav {
+        background-color: rgba(31, 41, 55, 0.98) !important;
+    }
+    
     /* Contenedores principales */
     .container {
         padding-left: 1rem;
@@ -1190,6 +1201,33 @@
 }
 
 @media (max-width: 360px) {
+    /* Header para pantallas extra pequeñas */
+    nav {
+        background-color: rgba(255, 255, 255, 0.99) !important;
+        border-bottom: 1px solid rgba(229, 231, 235, 0.5);
+    }
+    
+    .dark nav {
+        background-color: rgba(31, 41, 55, 0.99) !important;
+        border-bottom: 1px solid rgba(75, 85, 99, 0.5);
+    }
+    
+    /* Logo más pequeño */
+    h1.text-xl {
+        font-size: 1.125rem;
+    }
+    
+    /* Botones más compactos */
+    .flex.items-center.space-x-2 {
+        gap: 0.25rem;
+    }
+    
+    /* Avatar más pequeño */
+    .w-7.h-7 {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
     /* Pantallas extra pequeñas */
     .emoji-picker {
         grid-template-columns: repeat(2, 1fr);
