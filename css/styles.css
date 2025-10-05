@@ -1005,24 +1005,71 @@
    RESPONSIVE - MÓVIL
    ============================================ */
 @media (max-width: 640px) {
-    /* Header simple para móviles */
+    /* Header optimizado para móviles */
     nav {
         background-color: white !important;
+        border-bottom: 1px solid #e5e7eb;
     }
     
     .dark nav {
         background-color: #1f2937 !important;
+        border-bottom: 1px solid #374151;
     }
     
-    /* Ajustar padding en móviles */
-    nav .max-w-7xl {
+    /* Contenedor del header */
+    nav .w-full {
         padding-left: 1rem;
         padding-right: 1rem;
     }
     
-    /* Ocultar nombre de usuario en móviles pequeños */
+    /* Altura fija para móviles */
+    nav .h-14 {
+        height: 3.5rem;
+        min-height: 3.5rem;
+    }
+    
+    /* Logo más pequeño en móviles */
+    nav h1 {
+        font-size: 1.125rem;
+        line-height: 1.5;
+    }
+    
+    /* Botones más compactos */
+    nav button {
+        padding: 0.375rem;
+        min-width: 2rem;
+        min-height: 2rem;
+    }
+    
+    /* Iconos más pequeños */
+    nav svg {
+        width: 1rem;
+        height: 1rem;
+    }
+    
+    /* Avatar más pequeño */
+    nav .w-7.h-7 {
+        width: 1.75rem;
+        height: 1.75rem;
+    }
+    
+    /* Espaciado reducido entre elementos */
+    nav .gap-2 {
+        gap: 0.5rem;
+    }
+    
+    nav .gap-1 {
+        gap: 0.25rem;
+    }
+    
+    /* Ocultar nombre de usuario en móviles */
     nav .hidden.sm\\:block {
         display: none !important;
+    }
+    
+    /* Dropdown más pequeño en móviles */
+    nav .w-56 {
+        width: 14rem;
     }
     
     /* Contenedores principales */
@@ -1210,10 +1257,54 @@
 }
 
 @media (max-width: 360px) {
-    /* Header simple para pantallas extra pequeñas */
-    nav .max-w-7xl {
+    /* Header ultra compacto para pantallas extra pequeñas */
+    nav .w-full {
         padding-left: 0.75rem;
         padding-right: 0.75rem;
+    }
+    
+    /* Altura mínima */
+    nav .h-14 {
+        height: 3rem;
+        min-height: 3rem;
+    }
+    
+    /* Logo más pequeño */
+    nav h1 {
+        font-size: 1rem;
+    }
+    
+    /* Botones más pequeños */
+    nav button {
+        padding: 0.25rem;
+        min-width: 1.75rem;
+        min-height: 1.75rem;
+    }
+    
+    /* Iconos más pequeños */
+    nav svg {
+        width: 0.875rem;
+        height: 0.875rem;
+    }
+    
+    /* Avatar más pequeño */
+    nav .w-7.h-7 {
+        width: 1.5rem;
+        height: 1.5rem;
+    }
+    
+    /* Espaciado mínimo */
+    nav .gap-2 {
+        gap: 0.25rem;
+    }
+    
+    nav .gap-1 {
+        gap: 0.125rem;
+    }
+    
+    /* Dropdown más pequeño */
+    nav .w-56 {
+        width: 12rem;
     }
     
     /* Pantallas extra pequeñas */
